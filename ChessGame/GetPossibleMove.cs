@@ -5,8 +5,8 @@ using System.Runtime.CompilerServices;
 public class GetPossibleMove
 {
 
-    List<Possition> whiteKingMoves = new List<Possition>();
-    List<Possition> blackKingMoves = new List<Possition>();
+   public List<Possition> whiteKingMoves = new List<Possition>();
+   public  List<Possition> blackKingMoves = new List<Possition>();
     List<Possition> whiteQueenMoves = new List<Possition>();
     List<Possition> blackQueenMoves = new List<Possition>();
     List<Possition> whiteRookMoves = new List<Possition>();
@@ -19,7 +19,7 @@ public class GetPossibleMove
     public List<Possition> whiteFiguresMoves = new List<Possition>();
     public List<Possition> blackFiguresMoves = new List<Possition>();
 
-    public Possition WhiteKing = new Possition();
+    public Possition whiteKing = new Possition();
     public Possition blackKing = new Possition();
 
     bool WhiteKingShax = false;
@@ -37,7 +37,7 @@ public class GetPossibleMove
 
                 if (s == "WK")
                 {
-                    WhiteKing = Position;
+                    whiteKing = Position;
                     whiteKingMoves = GetKingMoves(chessBoard, Position);
                     continue;
                 }

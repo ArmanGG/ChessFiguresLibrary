@@ -20,7 +20,7 @@ public static class Game4
         int blackBishopCount = 0;
         int whiteKnightCount = 0;
         int blackKnightCount = 0;
-        while (count < 3)
+        while (count < 4)
         {
             Console.SetCursorPosition(0, 9);
             Console.WriteLine("Insert Possition(A8,B4,C3....)                           ");
@@ -111,8 +111,9 @@ public static class Game4
                         Console.WriteLine("Only two Black Knight is allowed.");
                         continue;
                     }
-                }else
-                {   
+                }
+                else
+                {
                     Console.SetCursorPosition(0, 11);
                     Console.WriteLine("The position is already occupied. ");
                     continue;
@@ -185,8 +186,48 @@ public static class Game4
         Console.SetCursorPosition(0, 15);
         if (getPossibleMove.CheckShax(getPossibleMove.whiteFiguresMoves, getPossibleMove.blackKing))
         {
-            Console.WriteLine("SHAX");
+            if (getPossibleMove.blackFiguresMoves.Count == 0)
+            {
+                if (getPossibleMove.blackKingMoves.All(getPossibleMove.whiteFiguresMoves.Contains))
+                {
+                    Console.WriteLine("Mat Black King");
+
+                }
+                else
+                    Console.WriteLine("SHAX Black King ");
+            }
+            else
+                Console.WriteLine("SHAX Black King ");
+        }else
+        {
+            if(getPossibleMove.blackFiguresMoves.Count == 0&& getPossibleMove.blackKingMoves.All(getPossibleMove.whiteFiguresMoves.Contains))
+            {
+                Console.WriteLine("Pat");
+            }
         }
+        if (getPossibleMove.CheckShax(getPossibleMove.blackFiguresMoves, getPossibleMove.whiteKing))
+        {
+            if (getPossibleMove.whiteFiguresMoves.Count == 0)
+            {
+                if (getPossibleMove.whiteKingMoves.All(getPossibleMove.blackFiguresMoves.Contains))
+                {
+                    Console.WriteLine("Mat White King");
+
+                }
+                else
+                    Console.WriteLine("SHAX White King ");
+            }
+            else
+                Console.WriteLine("SHAX White King ");
+        }
+        else
+        {
+            if (getPossibleMove.whiteFiguresMoves.Count == 0 && getPossibleMove.whiteKingMoves.All(getPossibleMove.blackFiguresMoves.Contains))
+            {
+                Console.WriteLine("Pat");
+            }
+        }
+
 
     }
 }
